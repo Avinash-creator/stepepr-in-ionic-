@@ -1,0 +1,204 @@
+<ion-header color="primary">
+  <ion-navbar>
+    <ion-title>Home<button ion-button (click)="goToMyPage()">SPACE TOUR</button> </ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to Ionic!</h2>
+<ion-stepper  #stepper (selectIndexChange)="selectChange($event)">
+  <!--------STEP1------------>
+      
+      <ion-step label="* Dedicated to (Full Name)">
+        <ion-input placeholder="Please Enter Full Name" [(ngModel)]="Name" name="Name"></ion-input><p>
+         <ion-input placeholder="Please Enter Valid Email" [(ngModel)]="Email" name="Email"></ion-input><p>
+         <ion-input placeholder="Please Confirm Emial Id" [(ngModel)]="Id" name="Id"></ion-input>
+         <ion-input placeholder="Please Enter  Valid Star Name" [(ngModel)]="StarName" name="StarName"></ion-input>
+         <!-------------OPTIONS-------------->
+         <ion-list>
+          <ion-item>
+            <ion-label>options</ion-label>
+            <ion-select [(ngModel)]="options">
+              <ion-option value="option1">option1</ion-option>
+              <ion-option value="option2">option2</ion-option>
+              <ion-option value="option3">option3</ion-option>
+              <ion-option value="option4">option4</ion-option>
+              <ion-option value="option5">option5</ion-option>
+              <ion-option value="option6">option6</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        <button ion-button ionicStepperNext (click)= "add()">Continue</button>
+      </ion-step>
+      <!------STEP2------------>
+      <ion-step label="Apply Discount"> 
+        <button ion-button color="light" ionicStepperNext>Skip</button>
+        <ion-input placeholder="Please Enter Coupen Code" [(ngModel)]="coupencodename" name=coupencodename></ion-input>
+        <button ion-button ionicStepperPrevious>Back</button>
+        <button ion-button ionicStepperNext (click)="adding()">Continue</button>
+      </ion-step>
+     
+      <!------STEP3------------>
+      <ion-step label="CHOOSE IMPORTANT DATES">
+        <ion-list>
+          <ion-item>
+            <ion-label>BIRTH(GIRL)</ion-label>
+            <ion-select [(ngModel)]="birthgirl">
+              <ion-option value="jan">jan</ion-option>
+              <ion-option value="feb">feb</ion-option>
+              <ion-option value="march">march</ion-option>
+              <ion-option value="april">april</ion-option>
+              <ion-option value="may">may</ion-option>
+              <ion-option value="june">june</ion-option>
+              <ion-option value="july">july</ion-option>
+              <ion-option value="aug">aug</ion-option>
+              <ion-option value="sep">sep</ion-option>
+              <ion-option value="oct">oct</ion-option>
+              <ion-option value="nov">nov</ion-option>
+              <ion-option value="dec">dec</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        <!----------DATE----------------->
+        <ion-item>
+          <ion-label>Stat Date</ion-label>
+          <ion-datetime displayFormat="DDDD/MM/YYYY" pickerFormat="DDDD MMMM YYYY" [(ngModel)]="startdate" name=startdate></ion-datetime>
+        </ion-item>
+         
+        <ion-item>
+          <ion-label>end Date</ion-label>
+          <ion-datetime displayFormat="DDDD/MM/YYYY" pickerFormat="DDDD MMMM YYYY" [(ngModel)]="enddate" name=enddate></ion-datetime>
+        </ion-item>
+         <button ion-button  ionicStepperPrevious>Back</button>
+        <button ion-button   ionicStepperNext (click)="birth()">Continue</button>
+      </ion-step> 
+      <!------STEP4------------>
+      <ion-step label="Personalize Your Certificate">
+        <button ion-button color="light" ionicStepperNext>Skip</button>
+        <ion-list radio-group [(ngModel)]="certificate">
+          <ion-item>
+            <ion-label>Standard</ion-label>
+            <ion-radio value="friends"  ></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Premium</ion-label>
+            <ion-radio value="family" checked ionicStepperNext></ion-radio>
+          </ion-item>
+        </ion-list>
+        <button ion-button  ionicStepperPrevious>Back</button>
+        <button ion-button  ionicStepperNext >Continue</button>
+      </ion-step>
+      <!------STEP5------------>
+       <ion-step label="Personalize Your Certificate">
+       <ion-list radio-group [(ngModel)]="realationships">
+         <ion-item>
+           <ion-label>Standard</ion-label>
+           <ion-radio value="friend" ionicStepperPrevious></ion-radio>          
+         </ion-item>
+         <ion-item>
+           <ion-label>Premium</ion-label>
+           <ion-radio ></ion-radio>
+         </ion-item>
+       </ion-list>
+<!----------------IMAGE--------------------->
+<input type="file" name="file" multiple>
+<button ion-button (click)="submit()">upload</button>
+
+<ion-list>
+  <ion-item>
+    <ion-label>options</ion-label>
+    <ion-select [(ngModel)]="options">
+      <ion-option value="option1">option1</ion-option>
+      <ion-option value="option2">option2</ion-option>
+      <ion-option value="option3">option3</ion-option>
+      <ion-option value="option4">option4</ion-option>
+      <ion-option value="option5">option5</ion-option>
+      <ion-option value="option6">option6</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+   <!----SECOND IMAGE-->
+      <ion-list radio-group [(ngModel)]="realationships">
+        <ion-item>
+          <ion-label>
+            <ion-img  width="100" height="100" src="../assets/imgs/design1.jpeg"></ion-img></ion-label>
+      <ion-radio>
+      </ion-radio>
+  
+    </ion-item>
+    </ion-list><P>
+
+         <button ion-button ionicStepperPrevious>Back</button>
+        <button ion-button ionicStepperNext>Continue</button>
+       
+      </ion-step>
+      <!------STEP6------>
+      <ion-step label="Enter Your Details">
+        <ion-input placeholder="Please Enter Your Email"[(ngModel)]="email"></ion-input>
+        <ion-input placeholder="Please Enter Your Name"[(ngModel)]="name"></ion-input>
+        <ion-list>
+          <ion-item>
+            <ion-label>options</ion-label>
+            <ion-select [(ngModel)]="options">
+              <ion-option value="option1">option1</ion-option>
+              <ion-option value="option2">option2</ion-option>
+              <ion-option value="option3">option3</ion-option>
+              <ion-option value="option4">option4</ion-option>
+              <ion-option value="option5">option5</ion-option>
+              <ion-option value="option6">option6</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        <ion-input placeholder="Please Enter Your 9 to 10 Digit phone number"[(ngModel)]="phonenumber"></ion-input>
+        <ion-textarea placeholder="Personal Message on Certificate"[(ngModel)]="message"></ion-textarea>
+         <button ion-button ionicStepperPrevious>Back</button>
+        <button ion-button ionicStepperNext (click)="detail()">Continue</button>
+      </ion-step>
+   <!----7TH STEP-->
+<ion-step label="Print and Shipping">
+  <h1>Print and Shipping</h1>
+  <button ion-button ionicStepperNext color="light">Skip</button>
+  <p>Shipping available in United Kingdom, Northern Ireland, Ireland, Canada, Australia, New Zealand and United States only<p>
+
+    7-14 days shipping from receipt of electronic documents (usually much quicker)</p>
+     <ion-item>
+      <ion-label>Print and Shipping <p>(Pay additional for print and Shipping):
+      </ion-label>
+      <ion-radio  ionicStepperNext></ion-radio>
+    </ion-item>
+    <p> United Kingdom & Northern Ireland £3.99<p>
+
+      United States, Ireland, Canada, Australia & New Zealand $10.50 USD</p>
+    <button ion-button ionicStepperPrevious >Back</button>
+    <button ion-button (click)="get()">Continue</button>
+</ion-step>
+
+<ion-step label="* Dedicated to (Full Name)">
+  <ion-input placeholder="Please Enter Name on Envelope"></ion-input><p>
+   <ion-input placeholder="Please Enter Address" ></ion-input><p>
+   <ion-input placeholder="Please Enter Postal Code"></ion-input>
+   <ion-input placeholder="Please Enter  City"></ion-input>
+
+   <ion-list>
+    <ion-item>
+      <ion-label>*Country</ion-label>
+      <ion-select [(ngModel)]="Country"> 
+        <ion-option value="-Select-">-Select-</ion-option>
+        <ion-option value="United Kingdom">United Kingdom</ion-option>
+        <ion-option value="United States">United States</ion-option>
+        <ion-option value="Canada">Canada</ion-option>
+        <ion-option value="Ireland">Ireland</ion-option>
+        <ion-option value="Australia">Australia</ion-option>
+        <ion-option value="New Zealand">New Zealand</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button ionicStepperPrevious>Back</button>
+  <button ion-button ionicStepperNext (click)="get()">Continue</button>
+</ion-step>
+</ion-stepper>
+</ion-content>
+
